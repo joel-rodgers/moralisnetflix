@@ -20,6 +20,7 @@ return(
         <Tab tabKey={1} tabName={"Movies"}></Tab>
         <Tab tabKey={2} tabName={"Series"} isDisabled={true}></Tab>
         <Tab tabKey={3} tabName={"MyList"}></Tab>
+        <Tab tabKey={3} tabName={"Documentaries"}></Tab>
      </TabList>
   </div>
   </>
