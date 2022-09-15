@@ -82,12 +82,14 @@ return(
               <img src={selectedFilm.Scene} className="modalImg"></img>
               <img className="modalLogo" src={selectedFilm.Logo}></img>
               <div className="modalPlayButton">
+              <Link to="/player" state={selectedFilm.Movie}>
               <Button
                 icon="chevronRightX2"
                 text="Play"
                 theme="secondary"
                 type="button"
               />
+               </Link>
               <Button
                 icon="plus"
                 text="Add to My List"
