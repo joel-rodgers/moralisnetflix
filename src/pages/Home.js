@@ -5,11 +5,13 @@ import { Logo } from '../images/Netflix';
 import {ConnectButton, Icon, TabList, Tab, Button, Modal} from "web3uikit";
 import { movies } from "../helpers/library";
 import { useState } from "react";
+import { useMoralis } from "react-moralis";
 
 const Home = () => {
 
   const [visible, setVisible] = useState(false);
   const [selectedFilm, setSelectedFilm] = useState();
+  const { isAuthenticated } = useMoralis();
 
 return(
   <>
@@ -39,6 +41,7 @@ return(
                 text="Add to My List"
                 theme="translucent"
                 type="button"
+                onClick={()=>console.log(isAuthenticated)}
               />
             </div>
           </div>
