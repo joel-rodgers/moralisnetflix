@@ -17,15 +17,24 @@ const Home = () => {
   useEffect(() => {
     
     async function fetchMyList() {
+
+      await Moralis.start({
+        serverUrl: "https://fbrgd62vblp4.usemoralis.com:2053/server",
+        appId: "z4qLsqMkWMpItxvP8f1ECPW3NwTca9G3b6G2sIZb",
+      });
+
+      try {
       const theList = await Moralis.Cloud.run("getMyList", {addrs: account});
 
       const filterdA= movies.filter(function (e) {
         return theList.indexOf(e.Name) > -1;
-      })
+      });
 
       setMyMovies(filterdA);
+    } catch (error) {
+      console.error(error)
     }
-
+  }
     fetchMyList();
   }, [account])
 
@@ -68,7 +77,7 @@ return(
                 text="Add to My List"
                 theme="translucent"
                 type="button"
-                onClick={()=>console.log(myMovies)}
+                onClick={() => console.log(myMovies)}
               />
             </div>
           </div>
@@ -79,9 +88,9 @@ return(
 
           <div className="thumbs">
             {movies &&
-            movies.map((e)=> {
+            movies.map((e,index)=> {
               return(
-                <img
+                <img key={index}
                 src={e.Thumnbnail}
                 className="thumbnail"
                 onClick={() => {

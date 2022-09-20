@@ -1,3 +1,5 @@
+import Moralis from "moralis/types";
+
 Moralis.Cloud.define("updateMyList", async (request) => {
   const addrs = request.params.addrs;
   const newFav = request.params.newFav;
