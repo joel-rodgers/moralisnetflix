@@ -5,7 +5,7 @@ import { Logo } from '../images/Netflix';
 import {ConnectButton, Icon, TabList, Tab, Button, Modal, useNotification} from "web3uikit";
 import { movies } from "../helpers/library";
 import { useState } from "react";
-import { useMoralis } from "react-moralis";
+import { MoralisProvider, useMoralis } from "react-moralis";
 
 const Home = () => {
 
@@ -45,9 +45,19 @@ const Home = () => {
       type:"error",
       message:"Please Connect Your Crypto Wallet",
       title:"Not Authenticated",
-      position:"topL"
-    })
-  }
+      position:"topL",
+    });
+  };
+
+  const handleAddNotification = () => {
+    dispatch({
+      type:"success",
+      message:"Movie Added to List",
+      title:"Success",
+      position:"topL",
+    });
+  };
+
 
 return(
   <>
@@ -173,6 +183,13 @@ return(
                     text="Add to My List"
                     theme="translucent"
                     type="button"
+                    onClick={async () => {
+                      await Moralis.Cloud.run("updateMyList", {
+                        addrs: account,
+                        newFav: selectedFilm.Name,
+                      });
+                      handleAddNotification();
+                    }}
                   />
                   </>
                 ) : (
