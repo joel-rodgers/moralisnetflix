@@ -1,1 +1,2 @@
-# Netflix-Starter
+#Netflix-Clone
+![NETFLIX!](nc.png)
