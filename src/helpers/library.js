@@ -42,7 +42,7 @@ export const movies = [
     Duration: "3h 14min",
   },
   {
-    Movie: "https://ipfs.moralis.io:2053/ipfs/QmNtxfy9Mk8qLsdGnraHGk5XDim8ayR93krM24ETJEd2bG/media/0",
+    Movie: "https://ipfs.moralis.io:2053/ipfs/QmTou4GtZegAtdFaNhCsZMhpchTL969dc7spiCn7Kx1boP/media/0",
     Thumnbnail: spidey,
     Scene: spideyScene,
     Logo: spideyLogo,

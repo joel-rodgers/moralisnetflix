@@ -1,7 +1,7 @@
 let fs = require("fs");
 let axios = require("axios");
 
-let media = ["secretVideo.mp4"];
+let media = ["smht.mp4"];
 let ipfsArray = [];
 let promises = [];
 
@@ -26,8 +26,7 @@ Promise.all(promises).then(() => {
     ipfsArray,
     {
       headers: {
-        "X-API-KEY":
-          "<Your API KEY>",
+        "X-API-KEY":"XhsLJb4b0xuKv6DIYzM4Ip6sfjCg5RgKFlUnR36GNlkGRQO0ELBLPwNrKov7tMY9",
         "Content-Type": "application/json",
         accept: "application/json",
       },
