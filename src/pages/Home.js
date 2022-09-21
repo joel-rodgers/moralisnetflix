@@ -107,7 +107,44 @@ return(
 
         </Tab>
         <Tab tabKey={2} tabName={"Series"} isDisabled={true}></Tab>
-        <Tab tabKey={3} tabName={"MyList"}></Tab>
+        <Tab tabKey={3} tabName={"MyList"}>
+            <div className="ownListContent">
+              <div className="title">
+                Your Library
+              </div>
+              {myMovies && isAuthenticated ? (
+                <>
+                  <div className="ownThumbs">
+                    {
+                      myMovies.map((e,index)=> {
+                        return(
+                          <img key={index}
+                            src={e.Thumnbnail}
+                            className="thumbnail"
+                            onClick={() => {
+                              setSelectedFilm(e);
+                              setVisible(true);
+                            }}
+                          ></img>
+                        );
+            })
+            }
+          </div>
+                </>
+
+                ) :(
+                  <div className="ownThumbs">
+                      You Need To Authenticate To View Your Own List
+                  </div>
+                
+              )}
+
+            </div>
+
+
+
+
+        </Tab>
      </TabList>
      {selectedFilm && (
         <div className="modal">
